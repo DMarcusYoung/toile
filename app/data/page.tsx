@@ -11,17 +11,18 @@ export default function Data() {
     }
     getAccessToken(code)
     async function getAccessToken(code:string) {
-        const res = await fetch('', {
+        const res = await fetch('https://drchrono.com/o/token/', {
             method: 'POST',
             body: JSON.stringify({
                 'code': code,
                 'grant_type': 'authorization_code',
-                'redirect_uri': 'http://mytestapp.com/redirect_uri',
-                'client_id': 'abcdefg12345',
-                'client_secret': 'abcdefg12345'
+                'redirect_uri': 'https://toile-kohl.vercel.app/data',
+                'client_id': process.env.CLIENT_ID,
+                'client_secret': process.env.CLIENT_SECRET
             })
         });
         const data = await res.json();
+        console.log(data)
     }
 
   return (
