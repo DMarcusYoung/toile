@@ -13,7 +13,7 @@ export default function Data() {
     async function getAccessToken(code:string) {
         const res = await fetch('https://drchrono.com/o/token/', {
             method: 'POST',
-            mode: 'cors',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
